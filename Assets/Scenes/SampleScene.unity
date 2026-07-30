@@ -1298,7 +1298,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1.413437
+  MinDistance: 0.50035197
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -1383,7 +1383,7 @@ Transform:
   m_GameObject: {fileID: 1322403621}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7, y: 0.9, z: 0}
+  m_LocalPosition: {x: -3.32, y: 0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1678,6 +1678,7 @@ GameObject:
   - component: {fileID: 1752508085}
   - component: {fileID: 1752508084}
   - component: {fileID: 1752508086}
+  - component: {fileID: 1752508087}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -1806,6 +1807,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1752508087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752508083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40f71da0ae08472fad5b6dede5a9883c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AlarmController
+  _alarmSound: {fileID: 1322403622}
+  _maxVolume: 1
+  _minVolume: 0
+  _volumeChangeRate: 0.4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
