@@ -1270,6 +1270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1322403623}
   - component: {fileID: 1322403622}
+  - component: {fileID: 1322403624}
   m_Layer: 0
   m_Name: AlarmManager
   m_TagString: Untagged
@@ -1389,6 +1390,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1322403624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322403621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40f71da0ae08472fad5b6dede5a9883c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AlarmSystem
+  _alarmSound: {fileID: 1322403622}
+  _maxVolume: 1
+  _minVolume: 0
+  _volumeChangeRate: 0.5
 --- !u!1 &1455805569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1816,13 +1833,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1752508083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40f71da0ae08472fad5b6dede5a9883c, type: 3}
+  m_Script: {fileID: 11500000, guid: 365dd6482cc646b3829e33b248ad7e31, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AlarmController
-  _alarmSound: {fileID: 1322403622}
-  _maxVolume: 1
-  _minVolume: 0
-  _volumeChangeRate: 0.4
+  m_EditorClassIdentifier: Assembly-CSharp::HouseSecurity
+  _alarmSystem: {fileID: 1322403624}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

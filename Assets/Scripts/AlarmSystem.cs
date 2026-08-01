@@ -1,10 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
-public class AlarmController : MonoBehaviour
+public class AlarmSystem : MonoBehaviour
 {
-    [Header("Настройки сигнализации")]
-    [SerializeField] private AudioSource _alarmSound;
+    [Header("Настройки сигнализации")] [SerializeField]
+    private AudioSource _alarmSound;
+
     [SerializeField] private float _maxVolume = 1f;
     [SerializeField] private float _minVolume = 0f;
     [SerializeField] private float _volumeChangeRate = 0.5f;
@@ -24,6 +25,28 @@ public class AlarmController : MonoBehaviour
         _alarmSound.volume = _minVolume;
     }
 
+    public void TurnOn()
+    {
+        if (_alarmSound is null)
+            return;
+
+        StopAllCoroutines();
+
+        if (_alarmSound.isPlaying == false)
+            _alarmSound.Play();
+
+        StartCoroutine(ChangeVolumeRoutine(_maxVolume));
+    }
+
+    public void TurnOff()
+    {
+        if (_alarmSound is null)
+            return;
+
+        StopAllCoroutines();
+        StartCoroutine(ChangeVolumeRoutine(_minVolume));
+    }
+
     private IEnumerator ChangeVolumeRoutine(float targetVolume)
     {
         while (Mathf.Approximately(_alarmSound.volume, targetVolume) == false)
@@ -41,28 +64,5 @@ public class AlarmController : MonoBehaviour
 
         if (Mathf.Approximately(targetVolume, _minVolume))
             _alarmSound.Stop();
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.TryGetComponent(out PlayerMovement _))
-        {
-            StopAllCoroutines();
-
-            if (_alarmSound.isPlaying == false)
-                _alarmSound.Play();
-        }
-
-        StartCoroutine(ChangeVolumeRoutine(_maxVolume));
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.TryGetComponent(out PlayerMovement _))
-        {
-            StopAllCoroutines();
-
-            StartCoroutine(ChangeVolumeRoutine(_minVolume));
-        }
     }
 }
